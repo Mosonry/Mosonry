@@ -1,7 +1,7 @@
 name: Update README cards
 
 on:
-  push: # 推送时立即触发
+  push:
     branches:
       - main
       - master
@@ -9,6 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # ✅ 关键：添加写入权限
+    permissions:
+      contents: write  # 允许推送代码到仓库
+    
     steps:
       - uses: actions/checkout@v4
 
@@ -41,5 +45,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add profile/*.svg
-          git commit -m "Update README cards" || exit 0
+          git commit -m "Update README cards [skip ci]" || exit 0
           git push
