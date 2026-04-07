@@ -66,8 +66,8 @@
 ### 📈 GitHub Stats
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Mosonry/Mosonry/refs/heads/main/profile/stats.svg" alt="GitHub Stats" />
-  <img src="https://raw.githubusercontent.com/Mosonry/Mosonry/refs/heads/main/profile/top-langs.svg" alt="Top Languages" />
+  <img src="https://gh-proxy.org/https://raw.githubusercontent.com/Mosonry/Mosonry/refs/heads/main/profile/stats.svg" alt="GitHub Stats" />
+  <img src="https://gh-proxy.org/https://raw.githubusercontent.com/Mosonry/Mosonry/refs/heads/main/profile/top-langs.svg" alt="Top Languages" />
 </div>
 
 ---
