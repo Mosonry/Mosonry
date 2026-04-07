@@ -1,46 +1,36 @@
-name: Generate GitHub Profile Stats Cards
+name: Update Stats Images
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天UTC时间0点运行（北京时间8点）
-  workflow_dispatch:  # 允许手动触发
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
-  build:
+  update-stats:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
-      - uses: actions/checkout@v3
-      
-      # 生成主要统计数据
-      - name: Generate GitHub Readme Stats
-        uses: DenverCoder1/github-readme-stats@main
-        with:
-          user: ${{ github.repository_owner }}
-          output_filename: github-stats.svg
-          show_icons: true
-          hide_border: true
-          title_color: '2563EB'
-          icon_color: '2563EB'
-          theme: default
-          
-      # 生成连续打卡统计
-      - name: Generate Streak Stats
-        uses: DenverCoder1/github-readme-streak-stats@main
-        with:
-          user: ${{ github.repository_owner }}
-          output_filename: streak-stats.svg
-          hide_border: true
-          fire: '2563EB'
-          ring: '2563EB'
-          theme: default
-          
-      # 提交到 stats 分支
-      - name: Commit and Push
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Create Stats Branch
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout -b stats || git checkout stats
+          git checkout -b stats 2>/dev/null || git checkout stats
+          
+      - name: Download Stats Image
+        run: |
+          curl -o github-stats.svg "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&theme=default&hide_border=true&title_color=2563EB&icon_color=2563EB"
+          
+      - name: Download Streak Image
+        run: |
+          curl -o streak-stats.svg "https://github-readme-streak-stats.herokuapp.com/?user=${{ github.repository_owner }}&theme=default&hide_border=true&fire=2563EB&ring=2563EB"
+          
+      - name: Commit and Push
+        run: |
           git add github-stats.svg streak-stats.svg
-          git commit -m "Update stats cards [skip ci]" || echo "No changes"
+          git commit -m "Update stats [skip ci]" || echo "No changes"
           git push origin stats --force
