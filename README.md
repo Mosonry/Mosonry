@@ -68,7 +68,6 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/Mosonry/Mosonry/refs/heads/main/profile/stats.svg" alt="GitHub Stats" />
   <img src="https://raw.githubusercontent.com/Mosonry/Mosonry/refs/heads/main/profile/top-langs.svg" alt="Top Languages" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mosonry&theme=light&hide_border=true&fire=2563EB&ring=2563EB" alt="GitHub Streak" />
 </div>
 
 ---
