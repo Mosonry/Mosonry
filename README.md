@@ -66,7 +66,8 @@
 ### 📈 GitHub Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=mosonry&show_icons=true&theme=light&hide_border=true&title_color=2563EB&icon_color=2563EB" alt="Mosonry's GitHub Stats" />
+  <img src="https://raw.githubusercontent.com/mosonry/mosonry/main/profile/stats.svg" alt="GitHub Stats" />
+  <img src="https://raw.githubusercontent.com/mosonry/mosonry/main/profile/top-langs.svg" alt="Top Languages" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=mosonry&theme=light&hide_border=true&fire=2563EB&ring=2563EB" alt="GitHub Streak" />
 </div>
 
